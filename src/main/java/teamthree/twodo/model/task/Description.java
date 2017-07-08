@@ -26,13 +26,9 @@ public class Description {
      *
      * @throws IllegalValueException if given address string is invalid.
      */
-    public Description(String description) throws IllegalValueException {
-        requireNonNull(description);
-        if (!isValidAddress(description)) {
-            value = "No description.";
-        } else {
-            this.value = description;
-        }
+    public Description(String address) throws IllegalValueException {
+        requireNonNull(address);
+        this.value = address;
     }
 
     /**

@@ -11,7 +11,6 @@ public class UserPrefs {
 
     private GuiSettings guiSettings;
     private String addressBookFilePath = "data/addressbook.xml";
-    private String notifiedListFilePath = "data/notifiedtasks.xml";
     private String addressBookName = "MyAddressBook";
 
     public UserPrefs() {
@@ -34,16 +33,8 @@ public class UserPrefs {
         return addressBookFilePath;
     }
 
-    public String getNotifiedListFilePath() {
-        return notifiedListFilePath;
-    }
-
     public void setAddressBookFilePath(String addressBookFilePath) {
         this.addressBookFilePath = addressBookFilePath;
-    }
-
-    public void setNotifiedListFilePath(String notifiedListFilePath) {
-        this.addressBookFilePath = notifiedListFilePath;
     }
 
     public String getAddressBookName() {
@@ -65,8 +56,8 @@ public class UserPrefs {
 
         UserPrefs o = (UserPrefs) other;
 
-        return Objects.equals(guiSettings, o.guiSettings) && Objects.equals(addressBookFilePath, o.addressBookFilePath)
-                && Objects.equals(notifiedListFilePath, o.notifiedListFilePath)
+        return Objects.equals(guiSettings, o.guiSettings)
+                && Objects.equals(addressBookFilePath, o.addressBookFilePath)
                 && Objects.equals(addressBookName, o.addressBookName);
     }
 
@@ -79,7 +70,7 @@ public class UserPrefs {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Gui Settings : " + guiSettings.toString());
-        sb.append("\nLocal data file location : " + addressBookFilePath + ", " + notifiedListFilePath);
+        sb.append("\nLocal data file location : " + addressBookFilePath);
         sb.append("\nAddressBook name : " + addressBookName);
         return sb.toString();
     }

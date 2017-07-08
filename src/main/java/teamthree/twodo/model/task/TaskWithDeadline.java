@@ -24,8 +24,9 @@ public class TaskWithDeadline extends Task implements ReadOnlyTask {
         this(source.getName(), source.getDeadline().get(), source.getDescription(), source.getTags());
     }
 
-    public void setDeadline(Deadline deadline) {
-        this.deadline = deadline;
+    private void setDeadline(Optional<Deadline> deadline) {
+        assert(deadline.isPresent());
+        this.deadline = deadline.get();
     }
 
     @Override
@@ -39,11 +40,11 @@ public class TaskWithDeadline extends Task implements ReadOnlyTask {
     public String getAsText() {
         assert(deadline != null);
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName() + "\n")
+        builder.append(getName())
                 .append(getDeadline().get())
-                .append("Description: ")
+                .append(" Description: ")
                 .append(getDescription())
-                .append("Tags: ");
+                .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }
@@ -55,7 +56,7 @@ public class TaskWithDeadline extends Task implements ReadOnlyTask {
         requireNonNull(replacement);
 
         this.setName(replacement.getName());
-        this.setDeadline(replacement.getDeadline().get());
+        this.setDeadline(replacement.getDeadline());
         this.setDescription(replacement.getDescription());
         this.setTags(replacement.getTags());
     }

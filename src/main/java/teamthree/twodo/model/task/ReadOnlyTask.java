@@ -31,10 +31,10 @@ public interface ReadOnlyTask {
      */
     default String getAsText() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName() + "\n")
-                .append("\nDescription: ")
+        builder.append(getName())
+                .append(" Description: ")
                 .append(getDescription())
-                .append("\nTags: ");
+                .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }
