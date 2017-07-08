@@ -42,7 +42,7 @@ public class SampleDataUtil {
         try {
             TaskBook sampleAb = new TaskBook();
             for (Task samplePerson : getSamplePersons()) {
-                sampleAb.addTask(samplePerson);
+                sampleAb.addPerson(samplePerson);
             }
             return sampleAb;
         } catch (DuplicateTaskException e) {
