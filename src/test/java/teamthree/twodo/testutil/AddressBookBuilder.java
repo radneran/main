@@ -24,7 +24,7 @@ public class AddressBookBuilder {
     }
 
     public AddressBookBuilder withPerson(Task task) throws DuplicateTaskException {
-        taskBook.addTask(task);
+        taskBook.addPerson(task);
         return this;
     }
 
