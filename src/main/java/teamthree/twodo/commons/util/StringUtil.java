@@ -28,8 +28,10 @@ public class StringUtil {
      *       containsWordIgnoreCase("ABc def", "AB") == true //not a full word match
      * </pre>
      *
-     * @param sentence cannot be null
-     * @param word cannot be null, cannot be empty, must be a single word
+     * @param sentence
+     *            cannot be null
+     * @param word
+     *            cannot be null, cannot be empty, must be a single word
      */
     public static boolean containsWordIgnoreCase(String sentence, String word) {
         requireNonNull(sentence);
@@ -93,8 +95,9 @@ public class StringUtil {
      *
      * @param word
      * @param otherWord
-     * @param alphabetLength is the size of the alphabet of the language used currently
-     * hard-coded for english
+     * @param alphabetLength
+     *            is the size of the alphabet of the language used currently
+     *            hard-coded for english
      * @return int Minimum edit distance between word and otherWord
      */
     public static int damerauLevenshteinDistance(String word, String otherWord, int alphabetLength) {
@@ -146,7 +149,8 @@ public class StringUtil {
     /**
      * Handles the requisite preparation step to carry out autocorrection.
      *
-     * @param String Day user input string for day of the week
+     * @param String
+     *            Day user input string for day of the week
      * @return String Day shortened to just first three letters
      */
     public static String prepareDayString(String dateTime) {
@@ -176,28 +180,7 @@ public class StringUtil {
         return Optional.of(days[indexAndDistance[0]]);
 
     }
-    /*
-    public static Optional<String> getAutoCorrectedPrefix(String userPrefix) {
 
-        String[] commonPrefixes = { "next", "week", "this", "thu", "fri", "sat", "sun" };
-        int[] indexAndDistance = getIndexOfMostSimilarWord(userPrefix, commonPrefixes);
-        if (indexAndDistance[1] >= userPrefix.length()) {
-            //This means there was no close match
-            return Optional.empty();
-        }
-        return Optional.of(commonPrefixes[indexAndDistance[0]]);
-
-    }
-*/
-    /*public static Optional<String> getAutoCorrectedWord(String userInputForDeadline) {
-        if (userInputForDeadline.trim().matches(".*\\d+.*")) {
-            final Matcher matcher = Pattern.compile("[^\\d]").matcher(userInputForDeadline);
-        }
-        //dictionary of most common words for deadline input
-        String[] dictionary = { "monday", "tuesday", "wednesday"
-        , "thursday", "friday", "saturday", "sunday", "next", "week", "year", "month" };
-
-    }*/
     /**
      * Finds the string most similar to the argument inside an array of strings
      * and returns its index and minimum edit distance.
