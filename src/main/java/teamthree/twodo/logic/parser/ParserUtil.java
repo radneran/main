@@ -115,7 +115,6 @@ public class ParserUtil {
         String correctedEnd = (temp = parseAndCorrectDayFromUserDeadline(end)).isPresent() ? temp.get() : end;
         return Optional.of(new Deadline(correctedStart, correctedEnd, notification));
     }
-
     /**
      * Parses {@code Optional<String> startTime and endTime} into
      * {@code Optional <Deadline>} if they are present.
